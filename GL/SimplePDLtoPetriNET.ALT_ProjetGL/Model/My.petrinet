@@ -1,2 +1,53 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<petrinet:PetriNet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:petrinet="http://petrinet"/>
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:petrinet="http://petrinet">
+  <petrinet:PetriNet name="modele de processus"/>
+  <petrinet:Place name="Conception_notStarted" outgoing="/7" jeton="1"/>
+  <petrinet:Place name="Conception_inProgress" outgoing="/10" ingoing="/8"/>
+  <petrinet:Place name="Conception_finished" outgoing="/45 /48" ingoing="/11"/>
+  <petrinet:Place name="Conception_started" outgoing="/46 /47" ingoing="/9"/>
+  <petrinet:Transition name="Conception_start" outgoing="/8 /9" ingoing="/7"/>
+  <petrinet:Transition name="Conception_finish" outgoing="/11" ingoing="/10"/>
+  <petrinet:Arc source="/1" target="/5"/>
+  <petrinet:Arc source="/5" target="/2"/>
+  <petrinet:Arc source="/5" target="/4"/>
+  <petrinet:Arc source="/2" target="/6"/>
+  <petrinet:Arc source="/6" target="/3"/>
+  <petrinet:Place name="RédactionDoc_notStarted" outgoing="/18" jeton="1"/>
+  <petrinet:Place name="RédactionDoc_inProgress" outgoing="/21" ingoing="/19"/>
+  <petrinet:Place name="RédactionDoc_finished" ingoing="/22"/>
+  <petrinet:Place name="RédactionDoc_started" ingoing="/20"/>
+  <petrinet:Transition name="RédactionDoc_start" outgoing="/19 /20" ingoing="/18 /46"/>
+  <petrinet:Transition name="RédactionDoc_finish" outgoing="/22" ingoing="/21 /45"/>
+  <petrinet:Arc source="/12" target="/16"/>
+  <petrinet:Arc source="/16" target="/13"/>
+  <petrinet:Arc source="/16" target="/15"/>
+  <petrinet:Arc source="/13" target="/17"/>
+  <petrinet:Arc source="/17" target="/14"/>
+  <petrinet:Place name="RédactionTest_notStarted" outgoing="/29" jeton="1"/>
+  <petrinet:Place name="RédactionTest_inProgress" outgoing="/32" ingoing="/30"/>
+  <petrinet:Place name="RédactionTest_finished" ingoing="/33"/>
+  <petrinet:Place name="RédactionTest_started" ingoing="/31"/>
+  <petrinet:Transition name="RédactionTest_start" outgoing="/30 /31" ingoing="/29 /47"/>
+  <petrinet:Transition name="RédactionTest_finish" outgoing="/33" ingoing="/32 /49"/>
+  <petrinet:Arc source="/23" target="/27"/>
+  <petrinet:Arc source="/27" target="/24"/>
+  <petrinet:Arc source="/27" target="/26"/>
+  <petrinet:Arc source="/24" target="/28"/>
+  <petrinet:Arc source="/28" target="/25"/>
+  <petrinet:Place name="Programmation_notStarted" outgoing="/40" jeton="1"/>
+  <petrinet:Place name="Programmation_inProgress" outgoing="/43" ingoing="/41"/>
+  <petrinet:Place name="Programmation_finished" outgoing="/49" ingoing="/44"/>
+  <petrinet:Place name="Programmation_started" ingoing="/42"/>
+  <petrinet:Transition name="Programmation_start" outgoing="/41 /42" ingoing="/40 /48"/>
+  <petrinet:Transition name="Programmation_finish" outgoing="/44" ingoing="/43"/>
+  <petrinet:Arc source="/34" target="/38"/>
+  <petrinet:Arc source="/38" target="/35"/>
+  <petrinet:Arc source="/38" target="/37"/>
+  <petrinet:Arc source="/35" target="/39"/>
+  <petrinet:Arc source="/39" target="/36"/>
+  <petrinet:Arc type="read_arc" source="/3" target="/17"/>
+  <petrinet:Arc type="read_arc" source="/4" target="/16"/>
+  <petrinet:Arc type="read_arc" source="/4" target="/27"/>
+  <petrinet:Arc type="read_arc" source="/3" target="/38"/>
+  <petrinet:Arc type="read_arc" source="/36" target="/28"/>
+</xmi:XMI>

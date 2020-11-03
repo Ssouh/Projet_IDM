@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ASCII"?>
+<petrinet:PetriNet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:petrinet="http://petrinet" name="PetriNET Correspendantmodele de processus">
+  <noeud xsi:type="petrinet:Place" name="Conception_notStarted" outgoing="//@arc.0" jeton="1"/>
+  <noeud xsi:type="petrinet:Place" name="Conception_inProgress" outgoing="//@arc.2" ingoing="//@arc.1"/>
+  <noeud xsi:type="petrinet:Place" name="Conception_finished" outgoing="//@arc.20 //@arc.23" ingoing="//@arc.3"/>
+  <noeud xsi:type="petrinet:Place" name="Conception_started" outgoing="//@arc.21 //@arc.22" ingoing="//@arc.4"/>
+  <noeud xsi:type="petrinet:Transition" name="Conception_start" outgoing="//@arc.1 //@arc.4" ingoing="//@arc.0"/>
+  <noeud xsi:type="petrinet:Transition" name="Conception_finish" outgoing="//@arc.3" ingoing="//@arc.2"/>
+  <noeud xsi:type="petrinet:Place" name="R&#xe9;dactionDoc_notStarted" outgoing="//@arc.5" jeton="1"/>
+  <noeud xsi:type="petrinet:Place" name="R&#xe9;dactionDoc_inProgress" outgoing="//@arc.7" ingoing="//@arc.6"/>
+  <noeud xsi:type="petrinet:Place" name="R&#xe9;dactionDoc_finished" ingoing="//@arc.8"/>
+  <noeud xsi:type="petrinet:Place" name="R&#xe9;dactionDoc_started" ingoing="//@arc.9"/>
+  <noeud xsi:type="petrinet:Transition" name="R&#xe9;dactionDoc_start" outgoing="//@arc.6 //@arc.9" ingoing="//@arc.5 //@arc.21"/>
+  <noeud xsi:type="petrinet:Transition" name="R&#xe9;dactionDoc_finish" outgoing="//@arc.8" ingoing="//@arc.7 //@arc.20"/>
+  <noeud xsi:type="petrinet:Place" name="R&#xe9;dactionTest_notStarted" outgoing="//@arc.10" jeton="1"/>
+  <noeud xsi:type="petrinet:Place" name="R&#xe9;dactionTest_inProgress" outgoing="//@arc.12" ingoing="//@arc.11"/>
+  <noeud xsi:type="petrinet:Place" name="R&#xe9;dactionTest_finished" ingoing="//@arc.13"/>
+  <noeud xsi:type="petrinet:Place" name="R&#xe9;dactionTest_started" ingoing="//@arc.14"/>
+  <noeud xsi:type="petrinet:Transition" name="R&#xe9;dactionTest_start" outgoing="//@arc.11 //@arc.14" ingoing="//@arc.10 //@arc.22"/>
+  <noeud xsi:type="petrinet:Transition" name="R&#xe9;dactionTest_finish" outgoing="//@arc.13" ingoing="//@arc.12 //@arc.24"/>
+  <noeud xsi:type="petrinet:Place" name="Programmation_notStarted" outgoing="//@arc.15" jeton="1"/>
+  <noeud xsi:type="petrinet:Place" name="Programmation_inProgress" outgoing="//@arc.17" ingoing="//@arc.16"/>
+  <noeud xsi:type="petrinet:Place" name="Programmation_finished" outgoing="//@arc.24" ingoing="//@arc.18"/>
+  <noeud xsi:type="petrinet:Place" name="Programmation_started" ingoing="//@arc.19"/>
+  <noeud xsi:type="petrinet:Transition" name="Programmation_start" outgoing="//@arc.16 //@arc.19" ingoing="//@arc.15 //@arc.23"/>
+  <noeud xsi:type="petrinet:Transition" name="Programmation_finish" outgoing="//@arc.18" ingoing="//@arc.17"/>
+  <arc source="//@noeud.0" target="//@noeud.4"/>
+  <arc source="//@noeud.4" target="//@noeud.1"/>
+  <arc source="//@noeud.1" target="//@noeud.5"/>
+  <arc source="//@noeud.5" target="//@noeud.2"/>
+  <arc source="//@noeud.4" target="//@noeud.3"/>
+  <arc source="//@noeud.6" target="//@noeud.10"/>
+  <arc source="//@noeud.10" target="//@noeud.7"/>
+  <arc source="//@noeud.7" target="//@noeud.11"/>
+  <arc source="//@noeud.11" target="//@noeud.8"/>
+  <arc source="//@noeud.10" target="//@noeud.9"/>
+  <arc source="//@noeud.12" target="//@noeud.16"/>
+  <arc source="//@noeud.16" target="//@noeud.13"/>
+  <arc source="//@noeud.13" target="//@noeud.17"/>
+  <arc source="//@noeud.17" target="//@noeud.14"/>
+  <arc source="//@noeud.16" target="//@noeud.15"/>
+  <arc source="//@noeud.18" target="//@noeud.22"/>
+  <arc source="//@noeud.22" target="//@noeud.19"/>
+  <arc source="//@noeud.19" target="//@noeud.23"/>
+  <arc source="//@noeud.23" target="//@noeud.20"/>
+  <arc source="//@noeud.22" target="//@noeud.21"/>
+  <arc type="read_arc" source="//@noeud.2" target="//@noeud.11"/>
+  <arc type="read_arc" source="//@noeud.3" target="//@noeud.10"/>
+  <arc type="read_arc" source="//@noeud.3" target="//@noeud.16"/>
+  <arc type="read_arc" source="//@noeud.2" target="//@noeud.22"/>
+  <arc type="read_arc" source="//@noeud.20" target="//@noeud.17"/>
+</petrinet:PetriNet>

@@ -45,12 +45,12 @@ rule WorkSequence2PetriNet {
 	to
 		a_ws : petriNet!Arc(type <- #read_arc
 			,source <- thisModule.resolveTemp(ws.predecessor,
-				if ((ws.WorkSequenceType = #FINISH_TO_FINISH) or (ws.WorkSequenceType = #FINISH_TO_START))
+				if ((ws.linkType = #finishToFinish) or (ws.linkType = #finishToStart))
 					then 'p_finished'
 					else 'p_started'
 					endif)
 			,target <- thisModule.resolveTemp(ws.successor,
-				if ((ws.WorkSequenceType = #FINISH_TO_START) or (ws.WorkSequenceType = #START_TO_START))
+				if ((ws.linkType = #finishToStart) or (ws.linkType = #startToStart))
 					then 't_start'
 					else 't_finish'
 					endif)

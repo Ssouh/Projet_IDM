@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -20,8 +21,10 @@ public class PetriNetCreator {
 	public static void main(String[] args) {
 		
 		// Charger le package Petrinet afin de l'enregistrer dans le registre d'Eclipse.
-		PetrinetPackage packageInstance = PetrinetPackage.eINSTANCE;
-		
+		//PetrinetPackage packageInstance = PetrinetPackage.eINSTANCE;
+		EPackage.Registry.INSTANCE.put(SimplepdlPackage.eNS_URI, SimplepdlPackage.eINSTANCE);
+		EPackage.Registry.INSTANCE.put(PetrinetPackage.eNS_URI, PetrinetPackage.eINSTANCE);
+
 		// Enregistrer l'extension ".xmi" comme devant Ãªtre ouverte Ã 
 		// l'aide d'un objet "XMIResourceFactoryImpl"
 		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
@@ -120,33 +123,54 @@ public class PetriNetCreator {
 			Arc ra = myFactory.createArc();
 			ra.setType(ArcType.READ_ARC);
 			if (ws.getLinkType() == WorkSequenceType.FINISH_TO_FINISH){
-				Noeud tmp= myFactory.createNoeud();
-				tmp.setName(ws.getPredecessor().getName()+"_finished");
-				ra.setSource(petriNet.getNoeud().get(petriNet.getNoeud().indexOf(tmp)));
-				tmp.setName(ws.getSuccessor().getName()+"_finish");
-				ra.setTarget(petriNet.getNoeud().get(petriNet.getNoeud().indexOf(tmp)));
+				String tmp = ws.getPredecessor().getName()+"_finished";
+				for (Noeud n : petriNet.getNoeud()) {
+					if (n.getName().equals(tmp))
+						ra.setSource(n);
 				}
+				tmp = ws.getSuccessor().getName()+"_finish";
+				for (Noeud n : petriNet.getNoeud()) {
+					if (n.getName().equals(tmp))
+						ra.setTarget(n);
+				}}
 			else if (ws.getLinkType() == WorkSequenceType.START_TO_FINISH){
-				Noeud tmp= myFactory.createNoeud();
+				/*Noeud tmp= myFactory.createNoeud();
 				tmp.setName(ws.getPredecessor().getName()+"_started");
 				ra.setSource(petriNet.getNoeud().get(petriNet.getNoeud().indexOf(tmp)));
 				tmp.setName(ws.getSuccessor().getName()+"_finish");
-				ra.setTarget(petriNet.getNoeud().get(petriNet.getNoeud().indexOf(tmp)));
+				ra.setTarget(petriNet.getNoeud().get(petriNet.getNoeud().indexOf(tmp)));*/
+				String tmp = ws.getPredecessor().getName()+"_started";
+				for (Noeud n : petriNet.getNoeud()) {
+					if (n.getName().equals(tmp))
+						ra.setSource(n);
 				}
+				tmp = ws.getSuccessor().getName()+"_finish";
+				for (Noeud n : petriNet.getNoeud()) {
+					if (n.getName().equals(tmp))
+						ra.setTarget(n);
+				}}
 			else if (ws.getLinkType() == WorkSequenceType.FINISH_TO_START){
-				Noeud tmp= myFactory.createNoeud();
-				tmp.setName(ws.getPredecessor().getName()+"_finished");
-				ra.setSource(petriNet.getNoeud().get(petriNet.getNoeud().indexOf(tmp)));
-				tmp.setName(ws.getSuccessor().getName()+"_start");
-				ra.setTarget(petriNet.getNoeud().get(petriNet.getNoeud().indexOf(tmp)));
+				String tmp = ws.getPredecessor().getName()+"_finished";
+				for (Noeud n : petriNet.getNoeud()) {
+					if (n.getName().equals(tmp))
+						ra.setSource(n);
 				}
+				tmp = ws.getSuccessor().getName()+"_start";
+				for (Noeud n : petriNet.getNoeud()) {
+					if (n.getName().equals(tmp))
+						ra.setTarget(n);
+				}}
 			else if (ws.getLinkType() == WorkSequenceType.START_TO_START){
-				Noeud tmp= myFactory.createNoeud();
-				tmp.setName(ws.getPredecessor().getName()+"_started");
-				ra.setSource(petriNet.getNoeud().get(petriNet.getNoeud().indexOf(tmp)));
-				tmp.setName(ws.getSuccessor().getName()+"_start");
-				ra.setTarget(petriNet.getNoeud().get(petriNet.getNoeud().indexOf(tmp)));
+				String tmp = ws.getPredecessor().getName()+"_started";
+				for (Noeud n : petriNet.getNoeud()) {
+					if (n.getName().equals(tmp))
+						ra.setSource(n);
 				}
+				tmp = ws.getSuccessor().getName()+"_start";
+				for (Noeud n : petriNet.getNoeud()) {
+					if (n.getName().equals(tmp))
+						ra.setTarget(n);
+				}}
 			petriNet.getArc().add(ra);
 		}
 		

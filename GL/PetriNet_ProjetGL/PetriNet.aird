@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis uid="_3xCkwBJHEeumnND0wtmRNA" selectedViews="_3xt6MBJHEeumnND0wtmRNA _3xyLoBJHEeumnND0wtmRNA _3xyysBJHEeumnND0wtmRNA _3x12ABJHEeumnND0wtmRNA" version="14.1.0.201810161215">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_3xCkwBJHEeumnND0wtmRNA" selectedViews="_3xt6MBJHEeumnND0wtmRNA _3xyLoBJHEeumnND0wtmRNA _3xyysBJHEeumnND0wtmRNA _3x12ABJHEeumnND0wtmRNA" version="14.3.1.202003261200">
     <semanticResources>PetriNet.ecore</semanticResources>
     <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
     <semanticResources>PetriNet.ocl</semanticResources>
@@ -10,8 +10,8 @@
     <semanticResources>http://www.eclipse.org/ocl/2015/Library.oclas</semanticResources>
     <semanticResources>PetriNet.xmi</semanticResources>
     <semanticResources>PetriNet1.xmi</semanticResources>
-    <semanticResources>PetriNetoTina.xmi</semanticResources>
     <semanticResources>PetriNet.genmodel</semanticResources>
+    <semanticResources>PetriNetoTina.petrinet</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_3xt6MBJHEeumnND0wtmRNA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_6pYD0BJHEeumnND0wtmRNA" name="petrinet diagram" repPath="#_6pMdoBJHEeumnND0wtmRNA">
@@ -29,7 +29,7 @@
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']"/>
     </ownedViews>
   </viewpoint:DAnalysis>
-  <diagram:DSemanticDiagram uid="_6pMdoBJHEeumnND0wtmRNA" name="petrinet diagram">
+  <diagram:DSemanticDiagram uid="_6pMdoBJHEeumnND0wtmRNA">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_6pXcwBJHEeumnND0wtmRNA" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_6pXcwRJHEeumnND0wtmRNA">
         <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_7EX9wBJHEeumnND0wtmRNA" labelExpression="service:render" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">

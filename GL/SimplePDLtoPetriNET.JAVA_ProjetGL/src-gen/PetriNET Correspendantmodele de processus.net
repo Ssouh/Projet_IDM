@@ -1,0 +1,25 @@
+net PetriNET Correspendantmodele de processus
+pl Conception_notStarted (1)
+pl Conception_inProgress (0)
+pl Conception_finished (0)
+pl Conception_started (0)
+pl RédactionDoc_notStarted (1)
+pl RédactionDoc_inProgress (0)
+pl RédactionDoc_finished (0)
+pl RédactionDoc_started (0)
+pl RédactionTest_notStarted (1)
+pl RédactionTest_inProgress (0)
+pl RédactionTest_finished (0)
+pl RédactionTest_started (0)
+pl Programmation_notStarted (1)
+pl Programmation_inProgress (0)
+pl Programmation_finished (0)
+pl Programmation_started (0)
+tr Conception_start Conception_notStarted ->  Conception_inProgress Conception_started
+tr Conception_finish Conception_inProgress ->  Conception_finished
+tr RédactionDoc_start RédactionDoc_notStarted Conception_started?0 ->  RédactionDoc_inProgress RédactionDoc_started
+tr RédactionDoc_finish RédactionDoc_inProgress Conception_finished?0 ->  RédactionDoc_finished
+tr RédactionTest_start RédactionTest_notStarted Conception_started?0 ->  RédactionTest_inProgress RédactionTest_started
+tr RédactionTest_finish RédactionTest_inProgress Programmation_finished?0 ->  RédactionTest_finished
+tr Programmation_start Programmation_notStarted Conception_finished?0 ->  Programmation_inProgress Programmation_started
+tr Programmation_finish Programmation_inProgress ->  Programmation_finished

@@ -7,7 +7,7 @@ create OUT: petriNet from  IN: simplepdl;
 -- Traduire un Process en un PetriNet de m�me nom
 rule Process2PetriNet {
 	from p: simplepdl!Process
-	to pn: petrinet!PetriNet (name <- p.name)
+	to pn: petriNet!PetriNet (name <- p.name)
 }
 
 -- Traduire une WorkDefinition en un motif sur le r�seau de Petri
@@ -15,17 +15,17 @@ rule WorkDefinition2PetriNet {
 	from wd: simplepdl!WorkDefinition
 	to
 		-- PLACES d'une WorkDefinition
-		p_notStarted: petrinet!Place(
+		p_notStarted: petriNet!Place(
 				name <- wd.name + '_notStarted',
 				jeton <- 1),
 				
-		p_inProgress: petrinet!Place(
+		p_inProgress: petriNet!Place(
 				name <- wd.name + '_inProgress'),
 				
-		p_finished: petrinet!Place(
+		p_finished: petriNet!Place(
 				name <- wd.name + '_finished'),
 				
-		p_started: petrinet!Place(
+		p_started: petriNet!Place(
 				name <- wd.name + '_started'),
 				
 		-- Transitions 
@@ -33,23 +33,23 @@ rule WorkDefinition2PetriNet {
 		t_finish: petriNet!Transition (name <- wd.name+'_finish'),
 		
 		--Arcs
-		a1 : petriNet!Arc (type <- #SIMPLE ,source <- p_notStarted,target <-t_start),
-		a21 : petriNet!Arc (type <- #SIMPLE ,source <- t_start,target <-p_inProgress),
-		a22 : petriNet!Arc (type <- #SIMPLE ,source <- t_start,target <-p_started),
-		a3 : petriNet!Arc (type <- #SIMPLE ,source <- p_inProgress,target <-t_finish),
-		a4 : petriNet!Arc (type <- #SIMPLE ,source <- t_finish,target <-p_finished)
+		a1 : petriNet!Arc (type <- #simple ,source <- p_notStarted,target <-t_start),
+		a21 : petriNet!Arc (type <- #simple ,source <- t_start,target <-p_inProgress),
+		a22 : petriNet!Arc (type <- #simple ,source <- t_start,target <-p_started),
+		a3 : petriNet!Arc (type <- #simple ,source <- p_inProgress,target <-t_finish),
+		a4 : petriNet!Arc (type <- #simple ,source <- t_finish,target <-p_finished)
 
 }
 rule WorkSequence2PetriNet {
 	from ws: simplepdl!WorkSequence
 	to
-		a_ws : petriNet!Arc(type <- #READ_ARC
+		a_ws : petriNet!Arc(type <- #read_arc
 			,source <- thisModule.resolveTemp(ws.predecessor,
 				if ((ws.WorkSequenceType = #FINISH_TO_FINISH) or (ws.WorkSequenceType = #FINISH_TO_START))
 					then 'p_finished'
 					else 'p_started'
 					endif)
-			,cible <- thisModule.resolveTemp(ws.successor,
+			,target <- thisModule.resolveTemp(ws.successor,
 				if ((ws.WorkSequenceType = #FINISH_TO_START) or (ws.WorkSequenceType = #START_TO_START))
 					then 't_start'
 					else 't_finish'

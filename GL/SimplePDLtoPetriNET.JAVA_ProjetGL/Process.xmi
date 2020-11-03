@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simplepdl:Process
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:simplepdl="http://simplepdl"
+    name="modele de processus">
+  <workDefinitions
+      linksToSuccessors="//@workSequences.0 //@workSequences.1 //@workSequences.2 //@workSequences.3"
+      name="Conception"/>
+  <workDefinitions
+      linksToPredecessors="//@workSequences.0 //@workSequences.1"
+      name="RédactionDoc"/>
+  <workDefinitions
+      linksToPredecessors="//@workSequences.2 //@workSequences.4"
+      name="RédactionTest"/>
+  <workDefinitions
+      linksToPredecessors="//@workSequences.3"
+      linksToSuccessors="//@workSequences.4"
+      name="Programmation"/>
+  <workSequences
+      linkType="finishToFinish"
+      predecessor="//@workDefinitions.0"
+      successor="//@workDefinitions.1"/>
+  <workSequences
+      predecessor="//@workDefinitions.0"
+      successor="//@workDefinitions.1"/>
+  <workSequences
+      predecessor="//@workDefinitions.0"
+      successor="//@workDefinitions.2"/>
+  <workSequences
+      linkType="finishToStart"
+      predecessor="//@workDefinitions.0"
+      successor="//@workDefinitions.3"/>
+  <workSequences
+      linkType="finishToFinish"
+      predecessor="//@workDefinitions.3"
+      successor="//@workDefinitions.2"/>
+  <guidance
+      description="Guidances"/>
+  <resource
+      name="Ressources"/>
+</simplepdl:Process>

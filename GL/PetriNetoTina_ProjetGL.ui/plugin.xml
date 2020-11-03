@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.*"
+            id="PetriNetoTina_ProjetGL.ui.popupMenus.contribution.IFile">
+         <menu id="org.eclipse.acceleo.module.menu" label="Acceleo Model to Text" path="additionsAcceleo">
+               <groupMarker name="acceleo"/> 
+         </menu>
+         <action
+               class="PetriNetoTina_ProjetGL.ui.popupMenus.AcceleoGeneratePetriNetoTinaProjetGLAction"
+               enablesFor="+"
+               id="PetriNetoTina_ProjetGL.ui.popupMenus.acceleoGeneratePetriNetoTinaProjetGLAction"
+               icon="icons/default.gif"
+               label="Generate PetriNetoTina ProjetGL"
+               menubarPath="org.eclipse.acceleo.module.menu/acceleo"/>
+      </objectContribution>
+   </extension>
+</plugin>

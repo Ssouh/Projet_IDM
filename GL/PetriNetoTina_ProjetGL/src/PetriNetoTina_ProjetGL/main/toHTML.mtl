@@ -1,0 +1,48 @@
+[comment encoding = UTF-8 /]
+[module toHTML('http://petrinet')]
+
+[comment Generation de la syntaxe .net à partir d'un modèle de réseau de pétri /]
+
+[template public petrinetoNET(aPetriNet : PetriNet)]
+[comment @main/]
+[file (aPetriNet.name.concat('.net'), false, 'UTF-8')]
+net [aPetriNet.name/]
+[for (pl : Place | aPetriNet.noeud->getPlaces())]
+pl [pl.name/] ([pl.jeton/])
+[/for]
+[for (tr : Transition | aPetriNet.noeud->getTransitions())]
+tr [tr.name/][tr.getTransitionsPredecessors()/] -> [tr.getTransitionsSuccessors()/]
+[/for]
+[/file]
+[/template]
+
+[query public getTransitions(elements : OrderedSet(Noeud)) : OrderedSet(Transition) = 
+	elements->select( e | e.oclIsTypeOf(Transition) )
+		->collect( e | e.oclAsType(Transition) )
+		->asOrderedSet()
+/]
+
+[query public getPlaces(elements : OrderedSet(Noeud)) : OrderedSet(Place) = 
+	elements->select( e | e.oclIsTypeOf(Place) )
+		->collect( e | e.oclAsType(Place) )
+		
+		->asOrderedSet()
+/]
+
+[template public getTransitionsPredecessors(tr : Transition)]
+[for (arc : Arc | tr.ingoing)] [arc.getPredecessorPlace()/][/for]
+[/template]
+
+[template public getTransitionsSuccessors(tr : Transition)]
+[for (arc : Arc | tr.outgoing)] [arc.getSuccessorPlace()/][/for]
+[/template]
+
+[template public getPredecessorPlace(arc : Arc)]
+[arc.source.name/][if (arc.type=ArcType::read_arc)]?[arc.poid/][elseif (arc.poid > 1)]*[arc.poid/][/if]
+[/template]
+
+[template public getSuccessorPlace(arc : Arc)]
+[arc.target.name/][if (arc.poid > 1)]*[arc.poid/][/if]
+[/template]
+
+

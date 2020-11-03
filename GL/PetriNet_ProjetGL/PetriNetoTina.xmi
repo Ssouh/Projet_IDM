@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<petrinet:PetriNet
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:petrinet="http://petrinet"
+    xsi:schemaLocation="http://petrinet PetriNet.ecore"
+    name="Exemple Réseau de petri">
+  <noeud xsi:type="petrinet:Transition"
+      name="t0"
+      outgoing="//@arc.1"
+      ingoing="//@arc.0"/>
+  <noeud xsi:type="petrinet:Place"
+      name="q0"
+      outgoing="//@arc.0"
+      ingoing="//@arc.5"/>
+  <noeud xsi:type="petrinet:Place"
+      name="q1"
+      outgoing="//@arc.2"
+      ingoing="//@arc.1"/>
+  <noeud xsi:type="petrinet:Place"
+      name="q2"
+      outgoing="//@arc.4"
+      ingoing="//@arc.3"/>
+  <noeud xsi:type="petrinet:Transition"
+      name="t1"
+      outgoing="//@arc.3"
+      ingoing="//@arc.2"/>
+  <noeud xsi:type="petrinet:Transition"
+      name="t2"
+      outgoing="//@arc.5"
+      ingoing="//@arc.4"/>
+  <noeud name="n0"/>
+  <arc source="//@noeud.1"
+      target="//@noeud.0"/>
+  <arc source="//@noeud.0"
+      target="//@noeud.2"/>
+  <arc source="//@noeud.2"
+      target="//@noeud.4"/>
+  <arc source="//@noeud.4"
+      target="//@noeud.3"/>
+  <arc source="//@noeud.3"
+      target="//@noeud.5"/>
+  <arc source="//@noeud.5"
+      target="//@noeud.1"/>
+</petrinet:PetriNet>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<petrinet:PetriNet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:petrinet="http://petrinet" name="petriex">
+  <noeud xsi:type="petrinet:Place" name="p1" outgoing="//@arc.0" jeton="1"/>
+  <noeud xsi:type="petrinet:Place" name="p2" ingoing="//@arc.1"/>
+  <noeud xsi:type="petrinet:Transition" name="t1" outgoing="//@arc.1" ingoing="//@arc.0"/>
+  <arc poid="1" source="//@noeud.0" target="//@noeud.2"/>
+  <arc poid="1" source="//@noeud.2" target="//@noeud.1"/>
+</petrinet:PetriNet>

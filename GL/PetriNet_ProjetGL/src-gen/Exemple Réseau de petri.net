@@ -1,0 +1,7 @@
+net Exemple Réseau de petri
+pl q0 (0)
+pl q1 (0)
+pl q2 (0)
+tr t0 q0 ->  q1
+tr t1 q1 ->  q2
+tr t2 q2 ->  q0

@@ -37,7 +37,8 @@ public class PetriNetCreator {
 		ResourceSet resGet = new ResourceSetImpl();
 		
 		// Charger la ressource (notre modÃ¨le)
-		URI modelURI_GET = URI.createURI("Process.xmi");
+		URI modelURI_GET = URI.createURI("models/ExempleSimplepdl.xmi");
+		//URI modelURI_GET = URI.createURI("Process.xmi");
 		Resource resource_SimplePDL = resGet.getResource(modelURI_GET, true);
 		
 		// RÃ©cupÃ©rer le premier Ã©lÃ©ment du modÃ¨le (Ã©lÃ©ment racine)
@@ -64,7 +65,20 @@ public class PetriNetCreator {
 		
 		// Ajouter le petriNet dans le modÃ¨le
 		resource_PetriNet.getContents().add(petriNet);
-
+		
+		
+		
+		
+		// Ajouter les ressources
+		for (simplepdl.Resource res : process.getResource()) {
+			// Creation des Places 
+			Place p1 = myFactory.createPlace();
+			p1.setName(res.getName());
+			p1.setJeton(res.getOccuranceNb());
+			petriNet.getNoeud().add(p1);
+			}
+		
+		
 		// Ajouter des WorkDefinitions
 		for (WorkDefinition wd : process.getWorkDefinitions()) {
 			// Creation des Places 
@@ -103,7 +117,7 @@ public class PetriNetCreator {
 			a4.setType(ArcType.SIMPLE);
 			a4.setSource(t2);
 			a4.setTarget(p3);
-			// Attribuer les Creation a PetriNET
+			// Attribuer les Creations a PetriNET
 			petriNet.getNoeud().add(p1);
 			petriNet.getNoeud().add(p2);
 			petriNet.getNoeud().add(p3);
@@ -115,7 +129,37 @@ public class PetriNetCreator {
 			petriNet.getArc().add(a3);
 			petriNet.getArc().add(a4);
 			petriNet.getArc().add(a22);
+			
+			// Ajouter les parameters
 
+			for (parameter par : wd.getParameters()) {
+				// Creation des Places 
+				//Demande parameter
+				String tmp ;
+				Arc ad =myFactory.createArc();
+				ad.setType(ArcType.SIMPLE);
+				ad.setPoid(par.getQuantity());
+				
+				tmp = par.getResource().getName();
+				for (Noeud n : petriNet.getNoeud()) 
+					if (n.getName().equals(tmp))
+						ad.setSource(n);
+					
+				ad.setTarget(t1);
+				petriNet.getArc().add(ad);
+				// Liberer Arc de parameter
+				Arc al =myFactory.createArc();
+				al.setType(ArcType.SIMPLE);
+				al.setPoid(par.getQuantity());
+				
+				tmp = par.getResource().getName();
+				for (Noeud n : petriNet.getNoeud()) 
+					if (n.getName().equals(tmp))
+						al.setSource(n);
+					
+				al.setTarget(t2);
+				petriNet.getArc().add(al);
+				}
 		}
 		
 		//Ajouter les WorkSequences
@@ -134,11 +178,6 @@ public class PetriNetCreator {
 						ra.setTarget(n);
 				}}
 			else if (ws.getLinkType() == WorkSequenceType.START_TO_FINISH){
-				/*Noeud tmp= myFactory.createNoeud();
-				tmp.setName(ws.getPredecessor().getName()+"_started");
-				ra.setSource(petriNet.getNoeud().get(petriNet.getNoeud().indexOf(tmp)));
-				tmp.setName(ws.getSuccessor().getName()+"_finish");
-				ra.setTarget(petriNet.getNoeud().get(petriNet.getNoeud().indexOf(tmp)));*/
 				String tmp = ws.getPredecessor().getName()+"_started";
 				for (Noeud n : petriNet.getNoeud()) {
 					if (n.getName().equals(tmp))
@@ -174,7 +213,9 @@ public class PetriNetCreator {
 			petriNet.getArc().add(ra);
 		}
 		
-	    
+		
+			
+			    
 		// Sauver la ressource
 	    try {
 	    	resource_PetriNet.save(Collections.EMPTY_MAP);

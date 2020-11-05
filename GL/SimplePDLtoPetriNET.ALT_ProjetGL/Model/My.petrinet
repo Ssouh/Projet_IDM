@@ -1,53 +1,58 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:petrinet="http://petrinet">
-  <petrinet:PetriNet name="modele de processus"/>
-  <petrinet:Place name="Conception_notStarted" outgoing="/7" jeton="1"/>
-  <petrinet:Place name="Conception_inProgress" outgoing="/10" ingoing="/8"/>
-  <petrinet:Place name="Conception_finished" outgoing="/45 /48" ingoing="/11"/>
-  <petrinet:Place name="Conception_started" outgoing="/46 /47" ingoing="/9"/>
-  <petrinet:Transition name="Conception_start" outgoing="/8 /9" ingoing="/7"/>
-  <petrinet:Transition name="Conception_finish" outgoing="/11" ingoing="/10"/>
-  <petrinet:Arc source="/1" target="/5"/>
-  <petrinet:Arc source="/5" target="/2"/>
-  <petrinet:Arc source="/5" target="/4"/>
-  <petrinet:Arc source="/2" target="/6"/>
-  <petrinet:Arc source="/6" target="/3"/>
-  <petrinet:Place name="RédactionDoc_notStarted" outgoing="/18" jeton="1"/>
-  <petrinet:Place name="RédactionDoc_inProgress" outgoing="/21" ingoing="/19"/>
-  <petrinet:Place name="RédactionDoc_finished" ingoing="/22"/>
-  <petrinet:Place name="RédactionDoc_started" ingoing="/20"/>
-  <petrinet:Transition name="RédactionDoc_start" outgoing="/19 /20" ingoing="/18 /46"/>
-  <petrinet:Transition name="RédactionDoc_finish" outgoing="/22" ingoing="/21 /45"/>
-  <petrinet:Arc source="/12" target="/16"/>
-  <petrinet:Arc source="/16" target="/13"/>
-  <petrinet:Arc source="/16" target="/15"/>
-  <petrinet:Arc source="/13" target="/17"/>
-  <petrinet:Arc source="/17" target="/14"/>
-  <petrinet:Place name="RédactionTest_notStarted" outgoing="/29" jeton="1"/>
-  <petrinet:Place name="RédactionTest_inProgress" outgoing="/32" ingoing="/30"/>
-  <petrinet:Place name="RédactionTest_finished" ingoing="/33"/>
-  <petrinet:Place name="RédactionTest_started" ingoing="/31"/>
-  <petrinet:Transition name="RédactionTest_start" outgoing="/30 /31" ingoing="/29 /47"/>
-  <petrinet:Transition name="RédactionTest_finish" outgoing="/33" ingoing="/32 /49"/>
-  <petrinet:Arc source="/23" target="/27"/>
-  <petrinet:Arc source="/27" target="/24"/>
-  <petrinet:Arc source="/27" target="/26"/>
-  <petrinet:Arc source="/24" target="/28"/>
-  <petrinet:Arc source="/28" target="/25"/>
-  <petrinet:Place name="Programmation_notStarted" outgoing="/40" jeton="1"/>
-  <petrinet:Place name="Programmation_inProgress" outgoing="/43" ingoing="/41"/>
-  <petrinet:Place name="Programmation_finished" outgoing="/49" ingoing="/44"/>
-  <petrinet:Place name="Programmation_started" ingoing="/42"/>
-  <petrinet:Transition name="Programmation_start" outgoing="/41 /42" ingoing="/40 /48"/>
-  <petrinet:Transition name="Programmation_finish" outgoing="/44" ingoing="/43"/>
-  <petrinet:Arc source="/34" target="/38"/>
-  <petrinet:Arc source="/38" target="/35"/>
-  <petrinet:Arc source="/38" target="/37"/>
-  <petrinet:Arc source="/35" target="/39"/>
-  <petrinet:Arc source="/39" target="/36"/>
-  <petrinet:Arc type="read_arc" source="/3" target="/17"/>
-  <petrinet:Arc type="read_arc" source="/4" target="/16"/>
-  <petrinet:Arc type="read_arc" source="/4" target="/27"/>
-  <petrinet:Arc type="read_arc" source="/3" target="/38"/>
-  <petrinet:Arc type="read_arc" source="/36" target="/28"/>
-</xmi:XMI>
+<petrinet:PetriNet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:petrinet="http://petrinet" name="modele de processus">
+  <noeud xsi:type="petrinet:Place" name="Conception_notStarted" outgoing="//@arc.0" jeton="1"/>
+  <noeud xsi:type="petrinet:Place" name="Conception_inProgress" outgoing="//@arc.3" ingoing="//@arc.1"/>
+  <noeud xsi:type="petrinet:Place" name="Conception_finished" outgoing="//@arc.20 //@arc.23" ingoing="//@arc.4"/>
+  <noeud xsi:type="petrinet:Place" name="Conception_started" outgoing="//@arc.21 //@arc.22" ingoing="//@arc.2"/>
+  <noeud xsi:type="petrinet:Transition" name="Conception_start" outgoing="//@arc.1 //@arc.2" ingoing="//@arc.0 //@arc.25 //@arc.27"/>
+  <noeud xsi:type="petrinet:Transition" name="Conception_finish" outgoing="//@arc.4 //@arc.26 //@arc.28" ingoing="//@arc.3"/>
+  <noeud xsi:type="petrinet:Place" name="RédactionDoc_notStarted" outgoing="//@arc.5" jeton="1"/>
+  <noeud xsi:type="petrinet:Place" name="RédactionDoc_inProgress" outgoing="//@arc.8" ingoing="//@arc.6"/>
+  <noeud xsi:type="petrinet:Place" name="RédactionDoc_finished" ingoing="//@arc.9"/>
+  <noeud xsi:type="petrinet:Place" name="RédactionDoc_started" ingoing="//@arc.7"/>
+  <noeud xsi:type="petrinet:Transition" name="RédactionDoc_start" outgoing="//@arc.6 //@arc.7" ingoing="//@arc.5 //@arc.21"/>
+  <noeud xsi:type="petrinet:Transition" name="RédactionDoc_finish" outgoing="//@arc.9" ingoing="//@arc.8 //@arc.20"/>
+  <noeud xsi:type="petrinet:Place" name="RédactionTest_notStarted" outgoing="//@arc.10" jeton="1"/>
+  <noeud xsi:type="petrinet:Place" name="RédactionTest_inProgress" outgoing="//@arc.13" ingoing="//@arc.11"/>
+  <noeud xsi:type="petrinet:Place" name="RédactionTest_finished" ingoing="//@arc.14"/>
+  <noeud xsi:type="petrinet:Place" name="RédactionTest_started" ingoing="//@arc.12"/>
+  <noeud xsi:type="petrinet:Transition" name="RédactionTest_start" outgoing="//@arc.11 //@arc.12" ingoing="//@arc.10 //@arc.22"/>
+  <noeud xsi:type="petrinet:Transition" name="RédactionTest_finish" outgoing="//@arc.14" ingoing="//@arc.13 //@arc.24"/>
+  <noeud xsi:type="petrinet:Place" name="Programmation_notStarted" outgoing="//@arc.15" jeton="1"/>
+  <noeud xsi:type="petrinet:Place" name="Programmation_inProgress" outgoing="//@arc.18" ingoing="//@arc.16"/>
+  <noeud xsi:type="petrinet:Place" name="Programmation_finished" outgoing="//@arc.24" ingoing="//@arc.19"/>
+  <noeud xsi:type="petrinet:Place" name="Programmation_started" ingoing="//@arc.17"/>
+  <noeud xsi:type="petrinet:Transition" name="Programmation_start" outgoing="//@arc.16 //@arc.17" ingoing="//@arc.15 //@arc.23"/>
+  <noeud xsi:type="petrinet:Transition" name="Programmation_finish" outgoing="//@arc.19" ingoing="//@arc.18"/>
+  <noeud xsi:type="petrinet:Place" name="Concepteur" outgoing="//@arc.25" ingoing="//@arc.26" jeton="3"/>
+  <noeud xsi:type="petrinet:Place" name="Machine" outgoing="//@arc.27" ingoing="//@arc.28" jeton="4"/>
+  <arc source="//@noeud.0" target="//@noeud.4"/>
+  <arc source="//@noeud.4" target="//@noeud.1"/>
+  <arc source="//@noeud.4" target="//@noeud.3"/>
+  <arc source="//@noeud.1" target="//@noeud.5"/>
+  <arc source="//@noeud.5" target="//@noeud.2"/>
+  <arc source="//@noeud.6" target="//@noeud.10"/>
+  <arc source="//@noeud.10" target="//@noeud.7"/>
+  <arc source="//@noeud.10" target="//@noeud.9"/>
+  <arc source="//@noeud.7" target="//@noeud.11"/>
+  <arc source="//@noeud.11" target="//@noeud.8"/>
+  <arc source="//@noeud.12" target="//@noeud.16"/>
+  <arc source="//@noeud.16" target="//@noeud.13"/>
+  <arc source="//@noeud.16" target="//@noeud.15"/>
+  <arc source="//@noeud.13" target="//@noeud.17"/>
+  <arc source="//@noeud.17" target="//@noeud.14"/>
+  <arc source="//@noeud.18" target="//@noeud.22"/>
+  <arc source="//@noeud.22" target="//@noeud.19"/>
+  <arc source="//@noeud.22" target="//@noeud.21"/>
+  <arc source="//@noeud.19" target="//@noeud.23"/>
+  <arc source="//@noeud.23" target="//@noeud.20"/>
+  <arc type="read_arc" source="//@noeud.2" target="//@noeud.11"/>
+  <arc type="read_arc" source="//@noeud.3" target="//@noeud.10"/>
+  <arc type="read_arc" source="//@noeud.3" target="//@noeud.16"/>
+  <arc type="read_arc" source="//@noeud.2" target="//@noeud.22"/>
+  <arc type="read_arc" source="//@noeud.20" target="//@noeud.17"/>
+  <arc poid="2" source="//@noeud.24" target="//@noeud.4"/>
+  <arc poid="2" source="//@noeud.5" target="//@noeud.24"/>
+  <arc poid="2" source="//@noeud.25" target="//@noeud.4"/>
+  <arc poid="2" source="//@noeud.5" target="//@noeud.25"/>
+</petrinet:PetriNet>

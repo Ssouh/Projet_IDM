@@ -38,5 +38,6 @@
   <guidance
       description="Guidances"/>
   <resource
-      name="Ressources"/>
+      name="Ressources"
+      OccuranceNb="3"/>
 </simplepdl:Process>

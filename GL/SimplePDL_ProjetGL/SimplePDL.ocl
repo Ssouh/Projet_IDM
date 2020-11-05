@@ -1,0 +1,36 @@
+import 'SimplePDL.ecore'
+
+package simplepdl
+
+context Process
+inv warningSeverity: false
+inv withMessage('Explicit message in process ' + self.name + ' (withMessage)'): false
+inv errorSeverity: null
+
+context Process
+inv validName('Invalid name: ' + self.name): self.name.matches('[A-Za-z_][A-Za-z0-9_]*')
+
+
+context Process
+inv I1:self.workDefinitions->forAll (p1,p2 | p1<>p2 implies p1.name <>p2.name)
+inv I2:self.resource->forAll (p1,p2 | p1<>p2 implies p1.name <>p2.name)
+
+
+
+/*
+context WorkDefinition 
+def: process(): Process =
+	Process.allInstances()
+		->select(p | p->includes(self))
+		->asSequence()->first()
+
+
+context WorkSequence
+inv successorAndPredecessorInSameProcess('Activities not in the same process : '
+		+ self.predecessor.name + ' in ' + self.predecessor.Process().name+ ' and '
+		+ self.successor.name + ' in ' + self.successor.process().name
+):
+	self.process() = self.successor.process()
+	and self.process() = self.predecessor.process()
+ */
+endpackage

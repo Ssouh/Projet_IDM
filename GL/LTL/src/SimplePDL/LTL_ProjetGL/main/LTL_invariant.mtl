@@ -1,0 +1,17 @@
+[comment encoding = UTF-8 /]
+[module LTL_invariant('http://simplepdl')]
+
+[template public LTL_invariant(aProcess : Process)]
+[comment @main/]
+[file (aProcess.name.concat('-invariants.ltl'), false, 'UTF-8')]
+[for (wd : WorkDefinition | aProcess.workDefinitions->getWDs())]
+['[]'/] (- ( [wd.name.concat('_finished')/] /\ [wd.name.concat('_inProgress')/]  )) /\ (- ( [wd.name.concat('_finished')/] /\ [wd.name.concat('_started')/] )) /\ (- ( [wd.name.concat('_inProgress')/]  /\ [wd.name.concat('_started')/] ));
+[/for]
+[/file]
+[/template]
+
+[query public getWDs(elements : OrderedSet(WorkDefinition)) : OrderedSet(WorkDefinition) = 
+	elements->select( e | e.oclIsTypeOf(WorkDefinition) )
+		->collect( e | e.oclAsType(WorkDefinition) )
+		->asOrderedSet()
+/]

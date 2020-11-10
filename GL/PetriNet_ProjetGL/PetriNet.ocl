@@ -14,4 +14,50 @@ inv I1:self.source.oclType()<>self.target.oclType() and self.poid>=1
 /* le jeton d'une place doit toujours etre positifs*/
 context Place inv :
 self.jeton >=0
+
+
+
+/*context PetriElt
+
+	def:
+	petrinet():
+	PetriNet = PetriNet.allInstances()->select(p | p.petriElts->includes(self))->asSequence()->first()	
+	
+	context Arc
+
+	def:
+	petrinet():
+	PetriNet = PetriNet.allInstances()->select(p | p.arcs->includes(self))->asSequence()->first()	
+
+	inv
+	entreeAndSortieInSameProcess('Elements not in the same petrinet : ' + self.entree.name + ' in ' + self.entree.petrinet().name + ' and ' + self.sortie.name + ' in ' + self.sortie.petrinet().name):
+	self.petrinet() = self.entree.petrinet() and self.petrinet() = self.sortie.petrinet()
+
+	context PetriNet
+
+	inv uniqueNamePlace:
+	self.petriElts->select(pe | pe.oclIsKindOf(Place))->collect(pe |
+		pe.oclAsType(Place))->forAll(p1, p2 | p1 = p2 or p1.name <> p2.name)
+	
+	inv uniqueNameTransition:
+	self.petriElts->select(pe | pe.oclIsKindOf(Transition))->collect(pe |
+		pe.oclAsType(Transition))->forAll(t1, t2 | t1 = t2 or t1.name <> t2.name)
+
+
+	context PetriElt
+
+	inv nameNotNull:
+	self.name.size() >= 2
+	
+	context Place
+
+	inv nbJetonPositif:
+	self.nbJetons >= 0
+
+	context Arc
+
+	inv conforme:
+	not (self.entree.oclIsKindOf(Transition) and self.sortie.oclIsKindOf(Transition)) and not
+	(self.entree.oclIsKindOf(Place) and self.sortie.oclIsKindOf(Place))
+ */
 endpackage

@@ -3,19 +3,38 @@ import 'SimplePDL.ecore'
 package simplepdl
 
 context Process
-inv warningSeverity: false
-inv withMessage('Explicit message in process ' + self.name + ' (withMessage)'): false
-inv errorSeverity: null
+	inv warningSeverity: false
+	inv withMessage('Explicit message in process ' + self.name + ' (withMessage)'): false
+	inv errorSeverity: null
 
 context Process
-inv validName('Invalid name: ' + self.name): self.name.matches('[A-Za-z_][A-Za-z0-9_]*')
+	inv validName('Invalid name: ' + self.name): self.name.matches('[A-Za-z_][A-Za-z0-9_]*')
 
 
 context Process
-inv I1:self.workDefinitions->forAll (p1,p2 | p1<>p2 implies p1.name <>p2.name)
-inv I2:self.resource->forAll (p1,p2 | p1<>p2 implies p1.name <>p2.name)
+	inv I1:self.workDefinitions->forAll (p1,p2 | p1<>p2 implies p1.name <>p2.name)
+	inv I2:self.resource->forAll (p1,p2 | p1<>p2 implies p1.name <>p2.name)
 
+context WorkSequence
 
+	inv WSnotReflective:
+	self.predecessor <> self.successor
+
+context WorkDefinition
+
+	inv nameNotNull:
+	self.name.size() >= 2
+
+context Resource
+
+	inv qttePositive:
+	self.OccuranceNb > 0
+
+context parameter
+
+	inv qttePositive:
+	self.quantity >=0
+	
 
 /*
 context WorkDefinition 
@@ -23,7 +42,6 @@ def: process(): Process =
 	Process.allInstances()
 		->select(p | p->includes(self))
 		->asSequence()->first()
-
 
 context WorkSequence
 inv successorAndPredecessorInSameProcess('Activities not in the same process : '

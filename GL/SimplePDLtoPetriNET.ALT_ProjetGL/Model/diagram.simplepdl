@@ -1,53 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<simplepdl:Process
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:simplepdl="http://simplepdl"
-    name="modele de processus">
-  <workDefinitions
-      linksToSuccessors="//@workSequences.0 //@workSequences.1 //@workSequences.2 //@workSequences.3"
-      name="Conception">
-    <parameters
-        quantity="2"
-        resource="//@resource.0"/>
-    <parameters
-        quantity="2"
-        resource="//@resource.1"/>
+<simplepdl:Process xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:simplepdl="http://simplepdl" name="modele_de_processus">
+  <workDefinitions linksToSuccessors="//@workSequences.0 //@workSequences.1 //@workSequences.2 //@workSequences.3" name="Conception">
+    <parameters quantity="2" resource="//@resource.0"/>
+    <parameters quantity="2" resource="//@resource.1"/>
   </workDefinitions>
-  <workDefinitions
-      linksToPredecessors="//@workSequences.0 //@workSequences.1"
-      name="RédactionDoc"/>
-  <workDefinitions
-      linksToPredecessors="//@workSequences.2 //@workSequences.4"
-      name="RédactionTest"/>
-  <workDefinitions
-      linksToPredecessors="//@workSequences.3"
-      linksToSuccessors="//@workSequences.4"
-      name="Programmation"/>
-  <workSequences
-      linkType="finishToFinish"
-      predecessor="//@workDefinitions.0"
-      successor="//@workDefinitions.1"/>
-  <workSequences
-      predecessor="//@workDefinitions.0"
-      successor="//@workDefinitions.1"/>
-  <workSequences
-      predecessor="//@workDefinitions.0"
-      successor="//@workDefinitions.2"/>
-  <workSequences
-      linkType="finishToStart"
-      predecessor="//@workDefinitions.0"
-      successor="//@workDefinitions.3"/>
-  <workSequences
-      linkType="finishToFinish"
-      predecessor="//@workDefinitions.3"
-      successor="//@workDefinitions.2"/>
-  <guidance
-      description="Guidances"/>
-  <resource
-      name="Concepteur"
-      OccuranceNb="3"/>
-  <resource
-      name="Machine"
-      OccuranceNb="4"/>
+  <workDefinitions linksToPredecessors="//@workSequences.0 //@workSequences.1" name="RedactionDoc"/>
+  <workDefinitions linksToPredecessors="//@workSequences.2 //@workSequences.4" name="RedactionTest"/>
+  <workDefinitions linksToPredecessors="//@workSequences.3" linksToSuccessors="//@workSequences.4" name="Programmation"/>
+  <workSequences linkType="finishToFinish" predecessor="//@workDefinitions.0" successor="//@workDefinitions.1"/>
+  <workSequences predecessor="//@workDefinitions.0" successor="//@workDefinitions.1"/>
+  <workSequences predecessor="//@workDefinitions.0" successor="//@workDefinitions.2"/>
+  <workSequences linkType="finishToStart" predecessor="//@workDefinitions.0" successor="//@workDefinitions.3"/>
+  <workSequences linkType="finishToFinish" predecessor="//@workDefinitions.3" successor="//@workDefinitions.2"/>
+  <guidance description="Guidances"/>
+  <resource name="Concepteur" OccuranceNb="3"/>
+  <resource name="Machine" OccuranceNb="4"/>
 </simplepdl:Process>

@@ -1,4 +1,4 @@
 [] (- ( Conception_finished /\ Conception_inProgress  )) /\ (- ( Conception_finished /\ Conception_started )) /\ (- ( Conception_inProgress  /\ Conception_started ));
-[] (- ( RédactionDoc_finished /\ RédactionDoc_inProgress  )) /\ (- ( RédactionDoc_finished /\ RédactionDoc_started )) /\ (- ( RédactionDoc_inProgress  /\ RédactionDoc_started ));
-[] (- ( RédactionTest_finished /\ RédactionTest_inProgress  )) /\ (- ( RédactionTest_finished /\ RédactionTest_started )) /\ (- ( RédactionTest_inProgress  /\ RédactionTest_started ));
+[] (- ( RedactionDoc_finished /\ RedactionDoc_inProgress  )) /\ (- ( RedactionDoc_finished /\ RedactionDoc_started )) /\ (- ( RedactionDoc_inProgress  /\ RedactionDoc_started ));
+[] (- ( RedactionTest_finished /\ RedactionTest_inProgress  )) /\ (- ( RedactionTest_finished /\ RedactionTest_started )) /\ (- ( RedactionTest_inProgress  /\ RedactionTest_started ));
 [] (- ( Programmation_finished /\ Programmation_inProgress  )) /\ (- ( Programmation_finished /\ Programmation_started )) /\ (- ( Programmation_inProgress  /\ Programmation_started ));

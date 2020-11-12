@@ -56,6 +56,7 @@ rule WorkSequence2PetriNet {
 	from ws: simplepdl!WorkSequence
 	to
 		a_ws : petriNet!Arc(type <- #read_arc
+			,poid <- 1
 			,source <- thisModule.resolveTemp(ws.predecessor,
 				if ((ws.linkType = #finishToFinish) or (ws.linkType = #finishToStart))
 					then 'p_finished'

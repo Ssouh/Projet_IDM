@@ -61,7 +61,7 @@ public class PetriNetCreator {
 
 		// CrÃ©er un Ã©lÃ©ment Process
 	    PetriNet petriNet = myFactory.createPetriNet();
-		petriNet.setName("PetriNET Correspendant"+ process.getName());
+		petriNet.setName("PetriNET_Correspendant_"+ process.getName());
 		
 		// Ajouter le petriNet dans le modÃ¨le
 		resource_PetriNet.getContents().add(petriNet);
@@ -155,9 +155,9 @@ public class PetriNetCreator {
 				tmp = par.getResource().getName();
 				for (Noeud n : petriNet.getNoeud()) 
 					if (n.getName().equals(tmp))
-						al.setSource(n);
+						al.setTarget(n);
 					
-				al.setTarget(t2);
+				al.setSource(t2);
 				petriNet.getArc().add(al);
 				}
 		}
@@ -166,6 +166,7 @@ public class PetriNetCreator {
 		for (WorkSequence ws : process.getWorkSequences()) {
 			Arc ra = myFactory.createArc();
 			ra.setType(ArcType.READ_ARC);
+			ra.setPoid(1);
 			if (ws.getLinkType() == WorkSequenceType.FINISH_TO_FINISH){
 				String tmp = ws.getPredecessor().getName()+"_finished";
 				for (Noeud n : petriNet.getNoeud()) {

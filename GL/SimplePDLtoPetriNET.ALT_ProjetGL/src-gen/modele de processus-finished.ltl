@@ -1,5 +1,4 @@
-op finished = Conception_finished /\ RédactionDoc_finished /\ RédactionTest_finished /\ Programmation_finished;
-
+op finished = Conception_finished /\ RedactionDoc_finished /\ RedactionTest_finished /\ Programmation_finished;
 [] (finished => dead);
 [] <> dead ;
 [] (dead => finished);

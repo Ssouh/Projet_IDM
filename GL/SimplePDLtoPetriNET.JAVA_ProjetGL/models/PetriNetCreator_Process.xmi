@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="ASCII"?>
-<petrinet:PetriNet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:petrinet="http://petrinet" name="PetriNET Correspendantmodele de processus">
-  <noeud xsi:type="petrinet:Place" name="Concepteur" outgoing="//@arc.5 //@arc.6" jeton="3"/>
-  <noeud xsi:type="petrinet:Place" name="Machine" outgoing="//@arc.7 //@arc.8" jeton="4"/>
+<petrinet:PetriNet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:petrinet="http://petrinet" name="PetriNET_Correspendant_modele_de_processus">
+  <noeud xsi:type="petrinet:Place" name="Concepteur" outgoing="//@arc.5" ingoing="//@arc.6" jeton="3"/>
+  <noeud xsi:type="petrinet:Place" name="Machine" outgoing="//@arc.7" ingoing="//@arc.8" jeton="4"/>
   <noeud xsi:type="petrinet:Place" name="Conception_notStarted" outgoing="//@arc.0" jeton="1"/>
   <noeud xsi:type="petrinet:Place" name="Conception_inProgress" outgoing="//@arc.2" ingoing="//@arc.1"/>
   <noeud xsi:type="petrinet:Place" name="Conception_finished" outgoing="//@arc.24 //@arc.27" ingoing="//@arc.3"/>
   <noeud xsi:type="petrinet:Place" name="Conception_started" outgoing="//@arc.25 //@arc.26" ingoing="//@arc.4"/>
   <noeud xsi:type="petrinet:Transition" name="Conception_start" outgoing="//@arc.1 //@arc.4" ingoing="//@arc.0 //@arc.5 //@arc.7"/>
-  <noeud xsi:type="petrinet:Transition" name="Conception_finish" outgoing="//@arc.3" ingoing="//@arc.2 //@arc.6 //@arc.8"/>
-  <noeud xsi:type="petrinet:Place" name="R&#xe9;dactionDoc_notStarted" outgoing="//@arc.9" jeton="1"/>
-  <noeud xsi:type="petrinet:Place" name="R&#xe9;dactionDoc_inProgress" outgoing="//@arc.11" ingoing="//@arc.10"/>
-  <noeud xsi:type="petrinet:Place" name="R&#xe9;dactionDoc_finished" ingoing="//@arc.12"/>
-  <noeud xsi:type="petrinet:Place" name="R&#xe9;dactionDoc_started" ingoing="//@arc.13"/>
-  <noeud xsi:type="petrinet:Transition" name="R&#xe9;dactionDoc_start" outgoing="//@arc.10 //@arc.13" ingoing="//@arc.9 //@arc.25"/>
-  <noeud xsi:type="petrinet:Transition" name="R&#xe9;dactionDoc_finish" outgoing="//@arc.12" ingoing="//@arc.11 //@arc.24"/>
-  <noeud xsi:type="petrinet:Place" name="R&#xe9;dactionTest_notStarted" outgoing="//@arc.14" jeton="1"/>
-  <noeud xsi:type="petrinet:Place" name="R&#xe9;dactionTest_inProgress" outgoing="//@arc.16" ingoing="//@arc.15"/>
-  <noeud xsi:type="petrinet:Place" name="R&#xe9;dactionTest_finished" ingoing="//@arc.17"/>
-  <noeud xsi:type="petrinet:Place" name="R&#xe9;dactionTest_started" ingoing="//@arc.18"/>
-  <noeud xsi:type="petrinet:Transition" name="R&#xe9;dactionTest_start" outgoing="//@arc.15 //@arc.18" ingoing="//@arc.14 //@arc.26"/>
-  <noeud xsi:type="petrinet:Transition" name="R&#xe9;dactionTest_finish" outgoing="//@arc.17" ingoing="//@arc.16 //@arc.28"/>
+  <noeud xsi:type="petrinet:Transition" name="Conception_finish" outgoing="//@arc.3 //@arc.6 //@arc.8" ingoing="//@arc.2"/>
+  <noeud xsi:type="petrinet:Place" name="RedactionDoc_notStarted" outgoing="//@arc.9" jeton="1"/>
+  <noeud xsi:type="petrinet:Place" name="RedactionDoc_inProgress" outgoing="//@arc.11" ingoing="//@arc.10"/>
+  <noeud xsi:type="petrinet:Place" name="RedactionDoc_finished" ingoing="//@arc.12"/>
+  <noeud xsi:type="petrinet:Place" name="RedactionDoc_started" ingoing="//@arc.13"/>
+  <noeud xsi:type="petrinet:Transition" name="RedactionDoc_start" outgoing="//@arc.10 //@arc.13" ingoing="//@arc.9 //@arc.25"/>
+  <noeud xsi:type="petrinet:Transition" name="RedactionDoc_finish" outgoing="//@arc.12" ingoing="//@arc.11 //@arc.24"/>
+  <noeud xsi:type="petrinet:Place" name="RedactionTest_notStarted" outgoing="//@arc.14" jeton="1"/>
+  <noeud xsi:type="petrinet:Place" name="RedactionTest_inProgress" outgoing="//@arc.16" ingoing="//@arc.15"/>
+  <noeud xsi:type="petrinet:Place" name="RedactionTest_finished" ingoing="//@arc.17"/>
+  <noeud xsi:type="petrinet:Place" name="RedactionTest_started" ingoing="//@arc.18"/>
+  <noeud xsi:type="petrinet:Transition" name="RedactionTest_start" outgoing="//@arc.15 //@arc.18" ingoing="//@arc.14 //@arc.26"/>
+  <noeud xsi:type="petrinet:Transition" name="RedactionTest_finish" outgoing="//@arc.17" ingoing="//@arc.16 //@arc.28"/>
   <noeud xsi:type="petrinet:Place" name="Programmation_notStarted" outgoing="//@arc.19" jeton="1"/>
   <noeud xsi:type="petrinet:Place" name="Programmation_inProgress" outgoing="//@arc.21" ingoing="//@arc.20"/>
   <noeud xsi:type="petrinet:Place" name="Programmation_finished" outgoing="//@arc.28" ingoing="//@arc.22"/>
@@ -32,9 +32,9 @@
   <arc source="//@noeud.7" target="//@noeud.4"/>
   <arc source="//@noeud.6" target="//@noeud.5"/>
   <arc poid="2" source="//@noeud.0" target="//@noeud.6"/>
-  <arc poid="2" source="//@noeud.0" target="//@noeud.7"/>
+  <arc poid="2" source="//@noeud.7" target="//@noeud.0"/>
   <arc poid="2" source="//@noeud.1" target="//@noeud.6"/>
-  <arc poid="2" source="//@noeud.1" target="//@noeud.7"/>
+  <arc poid="2" source="//@noeud.7" target="//@noeud.1"/>
   <arc source="//@noeud.8" target="//@noeud.12"/>
   <arc source="//@noeud.12" target="//@noeud.9"/>
   <arc source="//@noeud.9" target="//@noeud.13"/>
@@ -50,9 +50,9 @@
   <arc source="//@noeud.21" target="//@noeud.25"/>
   <arc source="//@noeud.25" target="//@noeud.22"/>
   <arc source="//@noeud.24" target="//@noeud.23"/>
-  <arc type="read_arc" source="//@noeud.4" target="//@noeud.13"/>
-  <arc type="read_arc" source="//@noeud.5" target="//@noeud.12"/>
-  <arc type="read_arc" source="//@noeud.5" target="//@noeud.18"/>
-  <arc type="read_arc" source="//@noeud.4" target="//@noeud.24"/>
-  <arc type="read_arc" source="//@noeud.22" target="//@noeud.19"/>
+  <arc poid="1" type="read_arc" source="//@noeud.4" target="//@noeud.13"/>
+  <arc poid="1" type="read_arc" source="//@noeud.5" target="//@noeud.12"/>
+  <arc poid="1" type="read_arc" source="//@noeud.5" target="//@noeud.18"/>
+  <arc poid="1" type="read_arc" source="//@noeud.4" target="//@noeud.24"/>
+  <arc poid="1" type="read_arc" source="//@noeud.22" target="//@noeud.19"/>
 </petrinet:PetriNet>

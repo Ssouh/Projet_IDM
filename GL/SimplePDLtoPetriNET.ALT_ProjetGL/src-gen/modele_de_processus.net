@@ -1,0 +1,27 @@
+net modele_de_processus
+pl Conception_notStarted (1)
+pl Conception_inProgress (0)
+pl Conception_finished (0)
+pl Conception_started (0)
+pl RedactionDoc_notStarted (1)
+pl RedactionDoc_inProgress (0)
+pl RedactionDoc_finished (0)
+pl RedactionDoc_started (0)
+pl RedactionTest_notStarted (1)
+pl RedactionTest_inProgress (0)
+pl RedactionTest_finished (0)
+pl RedactionTest_started (0)
+pl Programmation_notStarted (1)
+pl Programmation_inProgress (0)
+pl Programmation_finished (0)
+pl Programmation_started (0)
+pl Concepteur (3)
+pl Machine (4)
+tr Conception_start Conception_notStarted Concepteur*2 Machine*2 ->  Conception_inProgress Conception_started
+tr Conception_finish Conception_inProgress ->  Conception_finished Concepteur*2 Machine*2
+tr RedactionDoc_start RedactionDoc_notStarted Conception_started?1 ->  RedactionDoc_inProgress RedactionDoc_started
+tr RedactionDoc_finish RedactionDoc_inProgress Conception_finished?1 ->  RedactionDoc_finished
+tr RedactionTest_start RedactionTest_notStarted Conception_started?1 ->  RedactionTest_inProgress RedactionTest_started
+tr RedactionTest_finish RedactionTest_inProgress Programmation_finished?1 ->  RedactionTest_finished
+tr Programmation_start Programmation_notStarted Conception_finished?1 ->  Programmation_inProgress Programmation_started
+tr Programmation_finish Programmation_inProgress ->  Programmation_finished

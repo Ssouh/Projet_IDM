@@ -3,7 +3,7 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:simplepdl="http://simplepdl"
-    name="modele de processus">
+    name="modele_de_processus">
   <workDefinitions
       linksToSuccessors="//@workSequences.0 //@workSequences.1 //@workSequences.2 //@workSequences.3"
       name="Conception">
@@ -16,10 +16,10 @@
   </workDefinitions>
   <workDefinitions
       linksToPredecessors="//@workSequences.0 //@workSequences.1"
-      name="RédactionDoc"/>
+      name="RedactionDoc"/>
   <workDefinitions
       linksToPredecessors="//@workSequences.2 //@workSequences.4"
-      name="RédactionTest"/>
+      name="RedactionTest"/>
   <workDefinitions
       linksToPredecessors="//@workSequences.3"
       linksToSuccessors="//@workSequences.4"

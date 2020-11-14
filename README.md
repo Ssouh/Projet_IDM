@@ -1,11 +1,8 @@
-## Projet_IDM 
-# Projet de modélisation des Meta-modele SIMPLEPDL et PETRINET
+# Projet_IDM : Projet de modélisation des Meta-modele SIMPLEPDL et PETRINET
 
-# Imad Abakarim
+- Imad Abakarim
 
-# Souhail Amghar
-
-## Département Sciences Numériques - Deuxième année
+- Souhail Amghar
 
 ## Novembre 2020
 
@@ -30,7 +27,11 @@
 - 7 Définition de la transformation modèle à texte (M2T)
 - 8 Validation de la transformation SimplePDL2PetriNet
 - 9 Conclusion
-- 1 Exemple d’un modèle de processus Table des figures
+
+
+## Table des figures (A voir sur le .PDF)
+
+- 1 Exemple d’un modèle de processus 
 - 2 Modèle SimplePDL
 - 3 Méta-modèle SimplePDL
 - 4 Architecture SimplePDL

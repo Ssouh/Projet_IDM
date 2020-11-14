@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pDL" nsURI="http://www.simple.project/PDL" nsPrefix="pDL">
+  <eClassifiers xsi:type="ecore:EClass" name="Process">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="workDefinitions" upperBound="-1"
+        eType="#//WorkDefinition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="workSequences" upperBound="-1"
+        eType="#//WorkSequence" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="guidance" upperBound="-1"
+        eType="#//Guidance" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resource" upperBound="-1"
+        eType="#//Resource" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WorkDefinition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linksToPredecessors" unique="false"
+        upperBound="-1" eType="#//WorkSequence"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linksToSuccessors" unique="false"
+        upperBound="-1" eType="#//WorkSequence"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="guidance" unique="false"
+        upperBound="-1" eType="#//Guidance"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//parameter" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WorkSequence">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="linkType" eType="#//WorkSequenceType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="predecessor" eType="#//WorkDefinition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="successor" eType="#//WorkDefinition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Guidance">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Resource">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OccuranceNb" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="parameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resource" eType="#//Resource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="WorkSequenceType">
+    <eLiterals name="startToStart" literal="startToStart"/>
+    <eLiterals name="finishToStart" value="1" literal="finishToStart"/>
+    <eLiterals name="startToFinish" value="2" literal="startToFinish"/>
+    <eLiterals name="finishToFinish" value="3" literal="finishToFinish"/>
+  </eClassifiers>
+</ecore:EPackage>

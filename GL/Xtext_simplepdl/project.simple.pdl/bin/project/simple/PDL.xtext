@@ -1,0 +1,59 @@
+grammar project.simple.PDL with org.eclipse.xtext.common.Terminals
+
+generate pDL "http://www.simple.project/PDL"
+
+Process :
+	'Process'
+	name=ID
+	'{'
+		'workDefinitions' '{' workDefinitions+=WorkDefinition ( "," workDefinitions+=WorkDefinition)* '}' 
+		('workSequences' '{' workSequences+=WorkSequence ( "," workSequences+=WorkSequence)* '}' )?
+		('guidance' '{' guidance+=Guidance ( "," guidance+=Guidance)* '}' )?
+		('resource' '{' resource+=Resource ( "," resource+=Resource)* '}' )?
+	'}';
+
+
+WorkDefinition :
+	{WorkDefinition}
+	'WorkDefinition'
+	name=ID
+	'{'
+		('linksToPredecessors' '(' linksToPredecessors+=[WorkSequence] ( "," linksToPredecessors+=[WorkSequence])* ')' )?
+		('linksToSuccessors' '(' linksToSuccessors+=[WorkSequence] ( "," linksToSuccessors+=[WorkSequence])* ')' )?
+		('guidance' '(' guidance+=[Guidance] ( "," guidance+=[Guidance])* ')' )?
+		('parameters' '{' parameters+=parameter ( "," parameters+=parameter)* '}' )?
+	'}';
+
+WorkSequence :
+	'WorkSequence'
+	'{'
+		'linkType' linkType=WorkSequenceType
+		'from' 'predecessor' predecessor=[WorkDefinition]
+		'to' 'successor' successor=[WorkDefinition]
+	'}';
+
+Guidance :
+	'Guidance'
+	'{'
+		'description' description=ID
+	'}';
+
+Resource :
+	{Resource}
+	'Resource'
+	name=ID
+	'{'
+		('OccuranceNb' OccuranceNb=INT)?
+	'}'
+;
+
+parameter :
+	'parameter'
+	'{'
+		('quantity' quantity=INT)?
+		'resource' resource=[Resource]
+	'}';
+
+
+enum WorkSequenceType :
+				startToStart = 'startToStart' | finishToStart = 'finishToStart' | startToFinish = 'startToFinish' | finishToFinish = 'finishToFinish';
